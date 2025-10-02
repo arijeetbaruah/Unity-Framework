@@ -1,0 +1,17 @@
+{
+    "name": "Baruah.Database",
+    "rootNamespace": "Baruah.Database",
+    "references": [
+        "GUID:d0fec8853a245104c8b9f7837a16b268",
+        "GUID:87c787ab0c2141b429ee779ed5137ccc"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

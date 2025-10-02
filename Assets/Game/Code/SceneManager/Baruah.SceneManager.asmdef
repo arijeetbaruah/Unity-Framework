@@ -1,0 +1,19 @@
+{
+    "name": "Baruah.SceneManager",
+    "rootNamespace": "Baruah.SceneManager",
+    "references": [
+        "GUID:d0fec8853a245104c8b9f7837a16b268",
+        "GUID:923fed1244f64ae45a3d14a771fb0780",
+        "GUID:6beafbc47e9adb748be390d633c0cc03",
+        "GUID:4910214db16419f4fa6d185f8712f193"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

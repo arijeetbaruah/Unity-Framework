@@ -1,0 +1,17 @@
+{
+    "name": "Baruah.Inputs",
+    "rootNamespace": "Baruah.Inputs",
+    "references": [
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:d0fec8853a245104c8b9f7837a16b268"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

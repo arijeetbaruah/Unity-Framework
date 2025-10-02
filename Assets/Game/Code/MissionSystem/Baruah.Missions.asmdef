@@ -1,0 +1,20 @@
+{
+    "name": "Baruah.Missions",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d0fec8853a245104c8b9f7837a16b268",
+        "GUID:6beafbc47e9adb748be390d633c0cc03",
+        "GUID:87c787ab0c2141b429ee779ed5137ccc",
+        "GUID:9e24947de15b9834991c9d8411ea37cf",
+        "GUID:84651a3751eca9349aac36a66bba901b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
