@@ -19,6 +19,9 @@ public class AnimationPlayable : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Creates a PlayableGraph, stores it in the <c>_playableGraph</c> field, and starts playback of the serialized <c>_clip</c> on this GameObject's <c>Animator</c> using game-time updates.
+    /// </summary>
     private void Start()
     {
         _playableGraph = PlayableGraph.Create();
