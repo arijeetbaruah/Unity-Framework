@@ -11,7 +11,7 @@ namespace Baruah.Animations
     [RequireComponent(typeof(Animator))]
     public class AnimationPlayable : MonoBehaviour
     {
-        [SerializeField] private AnimationDictionray _clips;
+        [SerializeField] private AnimationDictionary _clips;
 
         private PlayableGraph _playableGraph;
         private AnimationMixerPlayable _mixerPlayable;
@@ -96,7 +96,7 @@ namespace Baruah.Animations
     }
 
     [System.Serializable]
-    public class AnimationDictionray : SerializedDictionary<string, AnimationClip>
+    public class AnimationDictionary : SerializedDictionary<string, AnimationClip>
     {
         
     }
