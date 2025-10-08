@@ -10,6 +10,15 @@ public class AnimationPlayable : MonoBehaviour
     
     private PlayableGraph _playableGraph;
 
+    private void Awake()
+    {
+        if (_clip == null)
+        {
+            Debug.LogError("Animation clip is null");
+            enabled = false;
+        }
+    }
+
     private void Start()
     {
         _playableGraph = PlayableGraph.Create();
@@ -25,5 +34,13 @@ public class AnimationPlayable : MonoBehaviour
 
         // Plays the Graph.
         _playableGraph.Play();
+    }
+
+    private void OnDestroy()
+    {
+        if (_playableGraph.IsValid())
+        {
+            _playableGraph.Destroy();
+        }
     }
 }
