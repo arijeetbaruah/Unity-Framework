@@ -35,6 +35,13 @@ namespace Baruah.Animations
                     _clips.Remove(key);
                 }
             }
+
+            if (_clips.Count == 0)
+            {
+                Debug.LogError("No valid animation clips found after cleanup", this);
+                enabled = false;
+                return;
+            }
         }
 
         /// <summary>
