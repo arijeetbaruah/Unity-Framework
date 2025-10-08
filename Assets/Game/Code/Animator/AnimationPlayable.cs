@@ -22,7 +22,7 @@ namespace Baruah.Animations
         private Dictionary<string, int> _animationKeyToIndex = new();
 
         private IEnumerable<string> GetKeys => _clips.Keys;
-        
+
         private void Awake()
         {
             if (_clips == null)
@@ -44,6 +44,13 @@ namespace Baruah.Animations
             if (_clips.Count == 0)
             {
                 Debug.LogError("No valid animation clips found after cleanup", this);
+                enabled = false;
+                return;
+            }
+
+            if (string.IsNullOrEmpty(_defaultAnimationKey) || !_clips.ContainsKey(_defaultAnimationKey))
+            {
+                Debug.LogError($"Default animation key '{_defaultAnimationKey}' not found in clips dictionary", this);
                 enabled = false;
                 return;
             }
