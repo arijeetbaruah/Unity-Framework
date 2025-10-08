@@ -24,6 +24,16 @@ namespace Baruah.Animations
             {
                 Debug.LogError("Animation clip is null");
                 enabled = false;
+                return;
+            }
+
+            foreach (var key in _clips.Keys.ToList())
+            {
+                if (_clips[key] == null)
+                {
+                    Debug.LogError($"Animation clip for key '{key}' is null", this);
+                    _clips.Remove(key);
+                }
             }
         }
 
