@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Baruah.Utils;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.Playables;
@@ -12,12 +13,16 @@ namespace Baruah.Animations
     public class AnimationPlayable : MonoBehaviour
     {
         [SerializeField] private AnimationDictionary _clips;
+        [ValueDropdown(nameof(GetKeys))]
+        [SerializeField] private string _defaultAnimationKey = "idle";
 
         private PlayableGraph _playableGraph;
         private AnimationMixerPlayable _mixerPlayable;
         
         private Dictionary<string, int> _animationKeyToIndex = new();
 
+        private IEnumerable<string> GetKeys => _clips.Keys;
+        
         private void Awake()
         {
             if (_clips == null)
@@ -74,7 +79,7 @@ namespace Baruah.Animations
                 SetWeight(key, 0);
             }
             
-            SetWeight("idle", 1);
+            SetWeight(_defaultAnimationKey, 1);
         }
 
         public void SetWeight(string key, float weight)
