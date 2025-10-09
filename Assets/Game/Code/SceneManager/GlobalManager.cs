@@ -2,6 +2,7 @@ using Baruah.Database;
 using Baruah.Inputs;
 using Baruah.Mission;
 using Baruah.Service;
+using Baruah.UISystem;
 using UnityEngine;
 
 namespace Baruah.SceneManager
@@ -14,6 +15,7 @@ namespace Baruah.SceneManager
             ServiceManager.AddService(new InputService());
             ServiceManager.AddService(new DatabaseService());
             ServiceManager.AddService(new GameService());
+            ServiceManager.AddService(new PanelManager());
             ServiceManager.AddService(new MissionService());
         }
 
@@ -25,6 +27,7 @@ namespace Baruah.SceneManager
         private void OnDestroy()
         {
             ServiceManager.RemoveService<MissionService>();
+            ServiceManager.RemoveService<PanelManager>();
             ServiceManager.RemoveService<GameService>();
             ServiceManager.RemoveService<DatabaseService>();
             ServiceManager.RemoveService<InputService>();
