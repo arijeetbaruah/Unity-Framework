@@ -10,7 +10,7 @@ namespace Baruah.UISystem
     {
         private Dictionary<System.Type, BasePanel> _panels = new ();
         
-        private Stack<BasePanel> _panelStack = new();
+        private List<BasePanel> _activePanels = new();
         
         public void Initialize()
         {
@@ -21,6 +21,13 @@ namespace Baruah.UISystem
             foreach (var panelType in panelsType)
             {
                 BasePanel panel = (BasePanel) GameObject.FindFirstObjectByType(panelType, FindObjectsInactive.Include);
+                if (panel == null)
+                {
+                    Debug.LogWarning($"Panel type {panelType.Name} not found in scene.");
+                    continue;
+                }
+                
+                panel.Initialize();
                 _panels.Add(panelType, panel);
             }
         }
@@ -40,7 +47,7 @@ namespace Baruah.UISystem
                 if (panel.IsStackable)
                 {
                     panel.OnOpen();
-                    _panelStack.Push(panel);
+                    _activePanels.Add(panel);
                 }
                 else
                 {
@@ -56,20 +63,19 @@ namespace Baruah.UISystem
             {
                 panel.OnClose();
                 
-                if (_panelStack.Contains(panel))
-                    _panelStack = new Stack<BasePanel>(_panelStack.Where(p => p != panel));
+                if (_activePanels.Contains(panel))
+                    _activePanels.Remove(panel);
             }
         }
 
         public void CloseAllPanels()
         {
-            while (_panelStack.Count > 0)
+            foreach (var panel in _activePanels.ToArray())
             {
-                BasePanel panel = _panelStack.Pop();
                 panel.OnClose();
             }
             
-            _panelStack.Clear();
+            _activePanels.Clear();
         }
 
         public bool TryGetPanel<TPanel>(out TPanel panel) where TPanel : BasePanel
