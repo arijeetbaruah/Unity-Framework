@@ -9,6 +9,12 @@ namespace Baruah.SceneManager
 {
     public class GlobalManager : MonoBehaviour
     {
+        /// <summary>
+        /// Initializes the global manager, prevents its destruction on scene load, and registers core runtime services.
+        /// </summary>
+        /// <remarks>
+        /// Registers the following services with ServiceManager: InputService, DatabaseService, GameService, PanelManager, and MissionService.
+        /// </remarks>
         private void Start()
         {
             DontDestroyOnLoad(this);
@@ -24,6 +30,10 @@ namespace Baruah.SceneManager
             ServiceManager.Update();
         }
 
+        /// <summary>
+        /// Unregisters the scene-level services managed by this instance when it is destroyed.
+        /// </summary>
+        /// <remarks>Removes services from ServiceManager in the following order: MissionService, PanelManager, GameService, DatabaseService, InputService.</remarks>
         private void OnDestroy()
         {
             ServiceManager.RemoveService<MissionService>();
