@@ -46,13 +46,17 @@ namespace Baruah.UISystem
             {
                 if (panel.IsStackable)
                 {
-                    panel.OnOpen();
-                    _activePanels.Add(panel);
+                    if (!_activePanels.Contains(panel))
+                    {
+                        panel.OnOpen();
+                        _activePanels.Add(panel);
+                    }
                 }
                 else
                 {
                     CloseAllPanels();
                     panel.OnOpen();
+                    _activePanels.Add(panel);
                 }
             }
         }
