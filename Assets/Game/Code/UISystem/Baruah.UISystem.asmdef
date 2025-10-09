@@ -1,0 +1,16 @@
+{
+    "name": "Baruah.UISystem",
+    "rootNamespace": "Baruah.UISystem",
+    "references": [
+        "GUID:d0fec8853a245104c8b9f7837a16b268"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
