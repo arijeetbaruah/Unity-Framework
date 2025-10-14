@@ -42,7 +42,7 @@ namespace Baruah.StateMachine
         {
             if (state == null)
             {
-                throw new Exception("Can't start a null state");
+                throw new Exception("Can't end a null state");
             }
             
             state.OnExit();
