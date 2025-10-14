@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Baruah.StateMachine
 {
@@ -15,7 +16,7 @@ namespace Baruah.StateMachine
 
         public BaseStateMachine(IState startingState)
         {
-            _currentStates.Add(startingState);
+            StartState(startingState);
         }
 
         public void StartState<TState>(TState nextState) where TState : IState
@@ -26,13 +27,18 @@ namespace Baruah.StateMachine
 
         public void EndState<TState>(TState nextState) where TState : IState
         {
-            _currentStates.Remove(nextState);
             nextState.OnExit();
+            _currentStates.Remove(nextState);
+        }
+
+        public bool HasState<TState>() where TState : IState
+        {
+            return _currentStates.Any(s => s is TState);
         }
 
         public void Update()
         {
-            foreach (var state in _currentStates)
+            foreach (var state in _currentStates.ToList())
             {
                 state.OnUpdate();
             }
