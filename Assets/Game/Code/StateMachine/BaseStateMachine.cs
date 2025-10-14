@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace Baruah.StateMachine
 {
@@ -21,14 +23,30 @@ namespace Baruah.StateMachine
 
         public void StartState<TState>(TState nextState) where TState : IState
         {
+            if (nextState == null)
+            {
+                throw new Exception("Can't start a null state");
+            }
+
+            if (_currentStates.Contains(nextState))
+            {
+                Debug.LogWarning("Trying to start a state that has already been started");
+                return;
+            }
+            
             _currentStates.Add(nextState);
             nextState.OnEnter();
         }
 
-        public void EndState<TState>(TState nextState) where TState : IState
+        public void EndState<TState>(TState state) where TState : IState
         {
-            nextState.OnExit();
-            _currentStates.Remove(nextState);
+            if (state == null)
+            {
+                throw new Exception("Can't start a null state");
+            }
+            
+            state.OnExit();
+            _currentStates.Remove(state);
         }
 
         public bool HasState<TState>() where TState : IState
