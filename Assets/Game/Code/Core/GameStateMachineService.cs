@@ -20,7 +20,15 @@ namespace Baruah.Core
         {
             _stateMachine = null;
         }
-        
-        public GameStateMachine GetStateMachine() => _stateMachine;
+
+        public GameStateMachine GetStateMachine()
+        {
+            if (_stateMachine == null)
+            {
+                Initialize();
+            }
+            
+            return _stateMachine;
+        }
     }
 }
