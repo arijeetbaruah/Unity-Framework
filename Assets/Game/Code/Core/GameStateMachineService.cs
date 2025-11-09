@@ -13,7 +13,7 @@ namespace Baruah.Core
 
         public void Update()
         {
-            
+            _stateMachine.Update();
         }
 
         public void OnDestroy()
